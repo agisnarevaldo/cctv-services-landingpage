@@ -1,0 +1,15 @@
+import {Icon} from "@iconify-icon/react";
+
+interface IconBoxProps {
+    iconName: string;
+    title: string;
+}
+
+export default function IconBox({iconName, title}: IconBoxProps) {
+    return (
+        <div className="flex flex-col items-center bg-primary text-bg py-2 px-6 gap-1 justify-end rounded-lg">
+            <Icon className="text-[60px] h-full" icon={iconName}/>
+            <p className="font-medium tracking-wider">{title}</p>
+        </div>
+    )
+}

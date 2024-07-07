@@ -31,3 +31,16 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Add these classes to your global CSS file if you want to reuse them */
+.hover\:text-blue-500:hover {
+  @apply text-blue-500;
+}
+
+.hover\:bg-blue-100:hover {
+  @apply bg-blue-100;
+}
+
+.hover\:underline:hover {
+  @apply underline;
+}

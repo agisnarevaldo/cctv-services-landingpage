@@ -16,7 +16,7 @@ export default function HeroSection() {
 
     const texts = [
         "Selamat Datang di Website Kami",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Lorem ipsum dolor sit amet, consectetur.",
         "Highest Level of Protection"
     ]
 
@@ -53,35 +53,35 @@ export default function HeroSection() {
             <div className="absolute top-0 w-full h-full bg-black bg-opacity-40 rounded-t-2xl"></div>
             <div
                 className="absolute top-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent rounded-t-2xl"></div>
-            <div className="absolute top-0 w-full h-screen z-20">
+            <div className="absolute top-0 w-fit lg:w-screen lg:max-w-full sm:max-w-sm h-screen z-20">
                 <div className="flex flex-col items-center justify-around h-full gap-10">
                     <span className=""></span>
                     <div className="flex flex-col items-center gap-5">
-                        <h1 className={`text-4xl font-bold text-white transition-opacity duration-1000 ${textOpacity ? 'opacity-100' : 'opacity-0'}`}>
+                        <h1 className={`text-4xl font-bold text-center text-white transition-opacity duration-1000 ${textOpacity ? 'opacity-100' : 'opacity-0'}`}>
                             {texts[currentImage]}
                         </h1>
                     </div>
                     <div
-                        className="bg-gradient-to-b from-secondary to-primary bg-blend-darken bg-opacity-50 mb-10 flex gap-8 py-5 px-8 rounded-xl">
-                        <div className="flex items-center gap-2">
-                            <Icon className="text-[56px]" icon="streamline:fastforward-clock"/>
+                        className="bg-gradient-to-b from-secondary to-primary bg-blend-darken bg-opacity-50 mb-10 flex lg:gap-8 py-5 lg:px-8 rounded-xl">
+                        <div className="flex flex-col text-center lg:flex-row items-center justify-center gap-2">
+                            <Icon className="text-3xl lg:text-[56px]" icon="streamline:fastforward-clock"/>
                             <div>
-                                <h2 className="text-2xl font-bold">24/7</h2>
-                                <p>Waktu respon cepat</p>
+                                <h2 className="lg:text-2xl lg:font-bold">24/7</h2>
+                                <p className="text-sm md:text-base">Waktu respon cepat</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <Icon className="text-[56px]" icon="carbon:scis-transparent-supply" flip="horizontal" />
+                        <div className="flex flex-col text-center lg:flex-row items-center gap-2">
+                            <Icon className="text-3xl lg:text-[56px]" icon="carbon:scis-transparent-supply" flip="horizontal" />
                             <div>
-                                <h2 className="text-2xl font-bold">Solusi</h2>
-                                <p>Sesuai Kebutuhan Anda</p>
+                                <h2 className="lg:text-2xl lg:font-bold">Solusi</h2>
+                                <p className="text-sm md:text-base">Sesuai Kebutuhan Anda</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <Icon className="text-[56px]" icon="bi:house-gear"/>
+                        <div className="flex flex-col text-center lg:flex-row items-center gap-2">
+                            <Icon className="text-3xl lg:text-[56px]" icon="bi:house-gear"/>
                             <div>
-                                <h2 className="text-2xl font-bold">1234+</h2>
-                                <p>System terpasang</p>
+                                <h2 className="lg:text-2xl lg:font-bold">1234+</h2>
+                                <p className="text-sm md:text-base">System terpasang</p>
                             </div>
                         </div>
 

@@ -6,7 +6,6 @@ import CardPrice from "@/app/components/cardPrice";
 import Link from "next/link";
 import TestimonialSection from "@/app/components/testimonialSection";
 import Footer from "@/app/components/footer";
-import BtnChatFloat from "@/app/components/btnChatFloat";
 import FloatingChatButton from "@/app/components/floatingChatButton";
 
 export default function Home() {

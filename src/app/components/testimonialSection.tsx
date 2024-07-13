@@ -6,34 +6,24 @@ import Pagination from "@/app/components/pagination";
 
 const testimonials = [
     {
-        name: "John Doe",
+        name: "Randy",
         review: "Layanan CCTV yang luar biasa, sangat profesional dan responsif.",
-        imageUrl: "https://api.dicebear.com/9.x/initials/svg?seed=Jhon",
+        imageUrl: "https://api.dicebear.com/9.x/initials/svg?seed=Randy",
     },
     {
-        name: "Jane Smith",
+        name: "Rizky",
         review: "Produk berkualitas tinggi dengan harga terjangkau.",
-        imageUrl: "https://api.dicebear.com/9.x/initials/svg?seed=Jane",
+        imageUrl: "https://api.dicebear.com/9.x/initials/svg?seed=Rizky",
     },
     {
-        name: "John Doe",
+        name: "Billa",
         review: "Layanan CCTV yang luar biasa, sangat profesional dan responsif.",
-        imageUrl: "https://api.dicebear.com/9.x/initials/svg?seed=Jhon",
+        imageUrl: "https://api.dicebear.com/9.x/initials/svg?seed=Billa",
     },
     {
-        name: "Jane Smith",
+    name: "Iqbal",
         review: "Produk berkualitas tinggi dengan harga terjangkau.",
-        imageUrl: "https://api.dicebear.com/9.x/initials/svg?seed=Jane",
-    },
-    {
-        name: "John Doe",
-        review: "Layanan CCTV yang luar biasa, sangat profesional dan responsif.",
-        imageUrl: "https://api.dicebear.com/9.x/initials/svg?seed=Jhon",
-    },
-    {
-        name: "Jane Smith",
-        review: "Produk berkualitas tinggi dengan harga terjangkau.",
-        imageUrl: "https://api.dicebear.com/9.x/initials/svg?seed=Jane",
+        imageUrl: "https://api.dicebear.com/9.x/initials/svg?seed=Iqbal",
     },
 ];
 
@@ -51,19 +41,20 @@ const TestimonialSection = () => {
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
     return (
-        <section className="py-8">
-            <h2 className="text-2xl font-medium text-center mb-6">Testimonials</h2>
+        <section className="py-8" id="testimoni">
+            <h2 className="text-2xl font-medium text-center">Testimonials</h2>
+            <p className="text-center mb-6">Apa yang pelanggan kami katakan</p>
             <div className="grid grid-cols-1 mb-2 md:grid-cols-2 lg:grid-cols-4 px-12 lg:px-24 gap-4">
                 {currentTestimonials.map((testimonial, index) => (
                     <Testimonial key={index} {...testimonial} />
                 ))}
             </div>
-            <Pagination
-                totalProducts={testimonials.length}
-                productsPerPage={testimonialsPerPage}
-                currentPage={currentPage}
-                paginate={paginate}
-            />
+            {/*<Pagination*/}
+            {/*    totalProducts={testimonials.length}*/}
+            {/*    productsPerPage={testimonialsPerPage}*/}
+            {/*    currentPage={currentPage}*/}
+            {/*    paginate={paginate}*/}
+            {/*/>*/}
         </section>
     );
 };

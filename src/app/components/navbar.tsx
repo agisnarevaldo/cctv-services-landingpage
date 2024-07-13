@@ -35,28 +35,28 @@ export default function Navbar() {
     }, [isMenuOpen, isDropdownOpen]);
 
     return (
-        <nav className="flex justify-between items-center py-1 px-4 md:px-12 backdrop-blur-lg w-full sticky top-0 z-10 bg-gray-100 bg-opacity-50">
-            <div className="flex items-center pb-1">
-                <Image src="/brand-outline.svg" alt="Logo" width={100} height={100} />
-            </div>
+        <nav className="flex justify-between items-center py-1 px-4 md:px-12 backdrop-blur-lg w-full sticky top-0 z-40 bg-gray-100 bg-opacity-50">
+            <Link href="/" className="flex items-center pb-1">
+                <Image src="/priangan-logo.svg" alt="Logo" width={150} height={150} />
+            </Link>
             <div className="md:hidden">
                 <button onClick={toggleMenu} className="text-black">
                     <Icon icon={isMenuOpen ? "mingcute:close-line" : "mingcute:menu-line"} className="text-2xl" />
                 </button>
             </div>
-            <ul className={`md:flex items-center gap-10 ${isMenuOpen ? 'block' : 'hidden'} md:block absolute text-center md:static top-[67px] left-0 w-full md:w-auto  bg-gray-200 md:bg-opacity-0 md:backdrop-blur-0 md:flex-row flex-col md:items-center transition-transform transform md:transform-none rounded-b-2xl`}>
+            <ul className={`md:flex items-center gap-10 ${isMenuOpen ? 'block' : 'hidden'} md:block absolute text-center md:static top-[67px] left-0 w-full md:w-auto  bg-gray-200 md:bg-opacity-0 md:flex-row flex-col md:items-center transition-transform transform md:transform-none rounded-b-2xl`}>
                 <li className="py-4">
                     <Link href="/" className="hover:text-secondary font-medium text-black">Beranda</Link>
                 </li>
+                {/*<li className="py-4">*/}
+                {/*    <Link href="/   #testimoni" className="hover:text-secondary font-medium text-black">Testimoni</Link>*/}
+                {/*</li>*/}
                 <li className="py-4">
-                    <Link href="#testimoni" className="hover:text-secondary font-medium text-black">Testimoni</Link>
-                </li>
-                <li className="py-4">
-                    <Link href="#TentangKami" className="hover:text-secondary font-medium text-black">Tentang
+                    <Link href="/about" className="hover:text-secondary font-medium text-black">Tentang
                         Kami</Link>
                 </li>
                 <li className="py-4">
-                    <Link href="#HubungiKami" className="hover:text-secondary font-medium text-black">Hubungi
+                    <Link href="/kontak" className="hover:text-secondary font-medium text-black">Hubungi
                         Kami</Link>
                 </li>
                 <li className="relative py-4">
@@ -78,7 +78,6 @@ export default function Navbar() {
                                   className="hover:text-secondary font-medium text-black">Dahua</Link>
                             <Link href="/paket-hikvision"
                                   className="hover:text-secondary font-medium text-black">Hikvision</Link>
-                            <Link href="/paket-imou" className="hover:text-secondary font-medium text-black">Imou</Link>
                         </div>
                     )}
                 </li>

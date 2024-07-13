@@ -1,12 +1,13 @@
 import Image from "next/image";
 import {Icon} from "@iconify-icon/react";
+import Link from "next/link";
 
 type CardPriceProps = {
     brand: string;
     model: string;
     price: string;
     features: string[];
-    imageUrl: string;
+    // imageUrl: string;
     logoUrl: string;
     channels: string;
 };
@@ -16,13 +17,13 @@ export default function CardPrice({
                                       model,
                                       price,
                                       features,
-                                      imageUrl,
+                                    //   imageUrl,
                                       logoUrl,
                                       channels,
                                   }: CardPriceProps) {
     return (
         <div
-            className="bg-gradient-to-b from-secondary to-dark-blue mx-auto flex flex-col gap-4 w-max py-5 px-8 rounded-xl mb-2">
+    className="bg-gradient-to-b from-secondary           to-dark-blue mx-auto flex flex-col gap-4 w-max py-5 px-8 rounded-xl mb-2">
             <div className="flex justify-between items-center">
                 <Image src={logoUrl} alt={`${brand} Logo`} width={100} height={100}/>
                 <span className="bg-[#D9D9D9] bg-opacity-75 flex items-center rounded-md px-1">
@@ -30,7 +31,7 @@ export default function CardPrice({
         </span>
             </div>
             <div className="flex justify-center">
-                <Image src={imageUrl} alt={`${brand} ${model}`} width={200} height={200} priority={true}/>
+                {/*<Image src={imageUrl} alt={`${brand} ${model}`} width={200} height={200} priority={true}/>*/}
             </div>
             <div className="text-center text-bg">
                 <h2 className="font-semibold text-xl">{price}</h2>
@@ -44,11 +45,12 @@ export default function CardPrice({
                     </li>
                 ))}
             </ul>
-            <button
+            <Link
+                href={`https://wa.me/6285158228528?text=Halo%2C%20saya%20tertarik%20dengan%20paket%20${brand}%20${model}%20${channels}.`}
                 className="flex w-max mx-auto items-center justify-center gap-2 bg-bg py-2 px-4 rounded-lg hover:bg-gray-300">
                 <Icon icon="solar:bag-check-bold"/>
                 Pesan Sekarang
-            </button>
+            </Link>
         </div>
     )
 }

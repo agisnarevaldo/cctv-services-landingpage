@@ -1,8 +1,12 @@
 "use client";
-import React, { useState } from 'react';
+import {useState} from "react";
 import {Icon} from "@iconify-icon/react";
 
-const FloatingChatButton: React.FC = () => {
+type FloatingChatButtonProps = {
+    bottom: string;
+};
+
+export default function FloatingChatButton ({bottom}: FloatingChatButtonProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     const togglePopup = () => {
@@ -10,10 +14,10 @@ const FloatingChatButton: React.FC = () => {
     };
 
     return (
-        <div className="fixed bottom-10 right-4">
+        <div className={`fixed ${bottom} right-4 z-50 border border-bg rounded-full`}>
             <button
                 className={
-                `bg-primary text-white rounded-full p-4 shadow-lg
+                `bg-primary text-white rounded-full p-4 shadow-xl
                 flex items-center justify-center
                 hover:bg-secondary transition duration-300 
                 transform ${isOpen ? 'rotate-180' : 'rotate-0'}`}
@@ -28,7 +32,7 @@ const FloatingChatButton: React.FC = () => {
                         <li className="mb-2 flex items-center space-x-2">
                             <Icon icon="logos:whatsapp-icon" />
                             <a
-                                href="https://wa.me/1234567890"
+                                href="https://wa.me/6285158228528?text=Halo%20saya%20ingin%20bertanya%20tentang%20produk%20Anda"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-500 hover:underline"
@@ -39,7 +43,7 @@ const FloatingChatButton: React.FC = () => {
                         <li className="flex items-center space-x-2">
                             <Icon icon="teenyicons:phone-outline" />
                             <a
-                                href="tel:+1234567890"
+                                href="tel:+6285158228528"
                                 className="text-blue-500 hover:underline"
                             >
                                 Telepon
@@ -51,5 +55,3 @@ const FloatingChatButton: React.FC = () => {
         </div>
     );
 };
-
-export default FloatingChatButton;

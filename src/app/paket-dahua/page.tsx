@@ -1,7 +1,6 @@
 import CardPrice from "@/app/components/cardPrice";
 import FloatingChatButton from "@/app/components/floatingChatButton";
 import Footer from "@/app/components/footer";
-import HeroCard from "@/app/components/heroCard";
 
 export default function Page() {
     const products = [

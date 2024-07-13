@@ -16,8 +16,8 @@ export default function HeroSection() {
 
     const texts = [
         "Selamat Datang di Website Kami",
-        "Lorem ipsum dolor sit amet, consectetur.",
-        "Highest Level of Protection"
+        "Free Biaya Instalasi dan Konfigurasi",
+        "Garansi Resmi 1 Tahun"
     ]
 
     useEffect(() => {
@@ -62,25 +62,25 @@ export default function HeroSection() {
                         </h1>
                     </div>
                     <div
-                        className="bg-gradient-to-b from-secondary to-primary bg-blend-darken bg-opacity-50 mb-10 flex lg:gap-8 py-5 lg:px-8 rounded-xl">
+                        className="text-bg bg-gradient-to-b from-secondary to-primary bg-blend-darken bg-opacity-50 mb-10 flex lg:gap-8 py-5 lg:px-8 rounded-xl">
                         <div className="flex flex-col text-center lg:flex-row items-center justify-center gap-2">
-                            <Icon className="text-3xl lg:text-[56px]" icon="streamline:fastforward-clock"/>
+                            <Icon className="text-4xl lg:text-[56px]" icon="streamline:fastforward-clock"/>
                             <div>
-                                <h2 className="lg:text-2xl lg:font-bold">24/7</h2>
+                                <h2 className="text-xl font-semibold lg:text-2xl lg:font-bold">24/7</h2>
                                 <p className="text-sm md:text-base">Waktu respon cepat</p>
                             </div>
                         </div>
                         <div className="flex flex-col text-center lg:flex-row items-center gap-2">
-                            <Icon className="text-3xl lg:text-[56px]" icon="carbon:scis-transparent-supply" flip="horizontal" />
+                            <Icon className="text-4xl lg:text-[56px]" icon="carbon:scis-transparent-supply" flip="horizontal" />
                             <div>
-                                <h2 className="lg:text-2xl lg:font-bold">Solusi</h2>
+                                <h2 className="text-xl font-semibold lg:text-2xl lg:font-bold">Solusi</h2>
                                 <p className="text-sm md:text-base">Sesuai Kebutuhan Anda</p>
                             </div>
                         </div>
                         <div className="flex flex-col text-center lg:flex-row items-center gap-2">
-                            <Icon className="text-3xl lg:text-[56px]" icon="bi:house-gear"/>
+                            <Icon className="text-4xl font-semibold lg:text-[56px]" icon="bi:house-gear"/>
                             <div>
-                                <h2 className="lg:text-2xl lg:font-bold">1234+</h2>
+                                <h2 className="text-xl font-semibold lg:text-2xl lg:font-bold">1000 +</h2>
                                 <p className="text-sm md:text-base">System terpasang</p>
                             </div>
                         </div>

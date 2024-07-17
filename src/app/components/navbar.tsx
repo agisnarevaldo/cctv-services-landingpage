@@ -44,7 +44,7 @@ export default function Navbar() {
                     <Icon icon={isMenuOpen ? "mingcute:close-line" : "mingcute:menu-line"} className="text-2xl" />
                 </button>
             </div>
-            <ul className={`md:flex items-center gap-10 ${isMenuOpen ? 'block' : 'hidden'} md:block absolute text-center md:static top-[67px] left-0 w-full md:w-auto  bg-gray-200 md:bg-opacity-0 md:flex-row flex-col md:items-center transition-transform transform md:transform-none rounded-b-2xl`}>
+            <ul className={`md:flex items-center gap-10 ${isMenuOpen ? 'block' : 'hidden'} md:block absolute text-center md:static top-[57px] left-0 w-full md:w-auto  bg-gray-200 md:bg-opacity-0 md:flex-row flex-col md:items-center transition-transform transform md:transform-none rounded-b-2xl`}>
                 <li className="py-4">
                     <Link href="/" className="hover:text-secondary font-medium text-black">Beranda</Link>
                 </li>
@@ -76,8 +76,18 @@ export default function Navbar() {
                             `}>
                             <Link href="/paket-dahua"
                                   className="hover:text-secondary font-medium text-black">Dahua</Link>
-                            <Link href="/paket-hikvision"
-                                  className="hover:text-secondary font-medium text-black">Hikvision</Link>
+                            <Link
+                                href="/paket-hikvision"
+                                className="hover:text-secondary font-medium text-black"
+                            >
+                                Hikvision
+                            </Link>
+                            <Link
+                                href="/paket-ezviz"
+                                className="hover:text-secondary font-medium text-black"
+                            >
+                                Ezviz
+                            </Link>
                         </div>
                     )}
                 </li>

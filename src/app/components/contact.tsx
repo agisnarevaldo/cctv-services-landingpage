@@ -3,7 +3,7 @@ const Contact = () => {
     return (
         <>
             <section
-                className="relative overflow-hidden  py-20 lg:py-[120px]"
+                className="relative overflow-hidden py-10 lg:py-[60px]"
                 id="contact"
             >
             <div className="container">
@@ -35,7 +35,7 @@ const Contact = () => {
                                             Lokasi
                                         </h4>
                                         <p className="text-base text-body-color">
-                                            JL. Siluman Cibeureum Tasikmalaya. Indonesia
+                                            Jl. Tentara Pelajar No.24, Nagarawangi, Kec. Cihideung, Kab. Tasikmalaya, Jawa Barat 46124
                                         </p>
                                     </div>
                                 </div>
@@ -73,10 +73,10 @@ const Contact = () => {
                                     </div>
                                     <div className="w-full">
                                         <h4 className="mb-1 text-xl font-bold text-dark">
-                                            Telepon
+                                            Telepon / WA
                                         </h4>
                                         <p className="text-base text-body-color">
-                                            (+62)82115730185
+                                            (+62)851-5822-8521
                                         </p>
                                     </div>
                                 </div>
@@ -102,49 +102,49 @@ const Contact = () => {
                                             Email
                                         </h4>
                                         <p className="text-base text-body-color">
-                                            ltm@example.com
+                                            w       andimartinnugraha33@gmail.com
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
-                            <div className="relative rounded-lg bg-white p-8 shadow-lg">
-                                    <form>
-                                        <ContactInputBox
-                                            type="text"
-                                            name="name"
-                                            placeholder="Nama Lengkap"
-                                        />
-                                        <ContactInputBox
-                                            type="text"
-                                            name="email"
-                                            placeholder="Email"
-                                        />
-                                        <ContactInputBox
-                                            type="text"
-                                            name="phone"
-                                            placeholder="Telepon"
-                                        />
-                                        <ContactTextArea
-                                            row={6}
-                                            placeholder="Your Message"
-                                            name="details"
-                                            defaultValue=""
-                                        />
-                                        <div>
-                                            <button
-                                                type="submit"
-                                                className="w-full rounded border border-primary bg-primary p-3 text-white transition hover:bg-opacity-90"
-                                            >
-                                                Kirim Pesan
-                                            </button>
-                                        </div>
-                                    </form>
+                            <div className="relative p-4 rounded-lg bg-white shadow-lg">
+                                <form>
+                                    <ContactInputBox
+                                        type="text"
+                                        name="name"
+                                        placeholder="Nama Lengkap"
+                                    />
+                                    <ContactInputBox
+                                        type="text"
+                                        name="email"
+                                        placeholder="Email"
+                                    />
+                                    <ContactInputBox
+                                        type="text"
+                                        name="phone"
+                                        placeholder="Telepon"
+                                    />
+                                    <ContactTextArea
+                                        row={6}
+                                        placeholder="Your Message"
+                                        name="details"
+                                        defaultValue=""
+                                    />
+                                    <div>
+                                        <button
+                                            type="submit"
+                                            className="w-full rounded border border-primary bg-primary p-3 text-white transition hover:bg-opacity-90"
+                                        >
+                                            Kirim Pesan
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
             </section>
         </>
     );

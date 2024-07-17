@@ -183,7 +183,7 @@ export default function Page() {
             </section>
 
             <h2 className="text-2xl font-medium text-center my-4">Paket Dahua</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-0">
                 {products.map((product, index) => (
                     <CardPrice key={index} {...product} />
                 ))}

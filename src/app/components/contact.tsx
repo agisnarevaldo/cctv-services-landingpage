@@ -102,7 +102,7 @@ const Contact = () => {
                                             Email
                                         </h4>
                                         <p className="text-base text-body-color">
-                                            w       andimartinnugraha33@gmail.com
+                                            wandimartinnugraha33@gmail.com
                                         </p>
                                     </div>
                                 </div>

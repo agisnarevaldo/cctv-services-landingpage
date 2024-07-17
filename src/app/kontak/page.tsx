@@ -4,7 +4,7 @@ import FloatingChatButton from "@/app/components/floatingChatButton";
 
 export default function Page () {
     return (
-        <main className="min-h-screen">
+        <main className="">
             <FloatingChatButton bottom={"bottom-4"} />
             <Contact />
             <Footer />

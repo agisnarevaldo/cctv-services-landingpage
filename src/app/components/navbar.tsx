@@ -5,8 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import { Icon } from "@iconify-icon/react";
+import { usePathname} from "next/navigation";
+import clsx from "clsx";
 
 export default function Navbar() {
+    const pathname = usePathname();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -46,18 +49,49 @@ export default function Navbar() {
             </div>
             <ul className={`md:flex items-center gap-10 ${isMenuOpen ? 'block' : 'hidden'} md:block absolute text-center md:static top-[57px] left-0 w-full md:w-auto  bg-gray-200 md:bg-opacity-0 md:flex-row flex-col md:items-center transition-transform transform md:transform-none rounded-b-2xl`}>
                 <li className="py-4">
-                    <Link href="/" className="hover:text-secondary font-medium text-black">Beranda</Link>
+                    <Link
+                        href="/"
+                        className={
+                            clsx(
+                                "hover:text-secondary font-medium text-black",
+                                {
+                                    "text-secondary": pathname === "/",
+                                }
+                            )
+                        }
+                    >
+                        Beranda
+                    </Link>
                 </li>
-                {/*<li className="py-4">*/}
-                {/*    <Link href="/   #testimoni" className="hover:text-secondary font-medium text-black">Testimoni</Link>*/}
-                {/*</li>*/}
                 <li className="py-4">
-                    <Link href="/about" className="hover:text-secondary font-medium text-black">Tentang
-                        Kami</Link>
+                    <Link
+                        href="/about"
+                        className={
+                            clsx(
+                                "hover:text-secondary font-medium text-black",
+                                {
+                                    "text-secondary": pathname === "/about",
+                                }
+                            )
+                        }
+                    >
+                        Tentang Kami
+                    </Link>
                 </li>
                 <li className="py-4">
-                    <Link href="/kontak" className="hover:text-secondary font-medium text-black">Hubungi
-                        Kami</Link>
+                    <Link
+                        href="/kontak"
+                        className={
+                            clsx(
+                                "hover:text-secondary font-medium text-black",
+                                {
+                                    "text-secondary": pathname === "/kontak",
+                                }
+                            )
+                        }
+                    >
+                        Hubungi Kami
+                    </Link>
                 </li>
                 <li className="relative py-4">
                     <button onClick={toggleDropdown}

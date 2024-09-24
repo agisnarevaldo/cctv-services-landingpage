@@ -104,11 +104,11 @@ export default function Home() {
                           <Image src="/hikvision_logo.svg" alt="Paket 1" width={50} height={50} className="lg:w-20"/>
                           <Icon className="text-sm lg:text-2xl text-secondary" icon="iconamoon:arrow-top-right-1"/>
                       </Link>
-                  <Link href="/paket-ezviz" 
+                      <Link href="/paket-ezviz"
                             className="flex lg:px-6 lg:py-4 border border-b-secondary items-center lg:gap-4 rounded border-t-0 hover:bg-gray-300 hover:border-b-2 shadow hover:shadow-lg">
                           <Image src="/ezviz-logo.png" alt="Paket 1" width={50} height={50} className="lg:w-20"/>
                           <Icon className="text-sm lg:text-2xl text-secondary" icon="iconamoon:arrow-top-right-1"/>
-                        </Link>
+                    </Link>
                   </div>
               </div>
           </section>

@@ -6,8 +6,8 @@ export default function Page() {
     const ezvizProducts = [
         {
             brand: "Ezviz",
-            model: "2 Mp",
-            price: "IDR. 1.032.000",
+            model: "2 MP",
+            price: "IDR. 4.128.000",
             features: [
                 "1/3 Progressive Scan CMOS",
                 "2.8mm Lens",
@@ -24,7 +24,7 @@ export default function Page() {
         },
         {
             brand: "Ezviz",
-            model: "WiFi 2 Mp",
+            model: "WiFi 2 MP",
             price: "IDR. 8.499.000",
             features: [
                 "1/4 Progressive Scan CMOS",
@@ -42,7 +42,7 @@ export default function Page() {
         },
         {
             brand: "Ezviz",
-            model: "Full HD 2 Mp",
+            model: "Full HD 2 MP",
             price: "IDR. 17.599.000",
             features: [
                 "Image Sensor : F2.2@1/3 Progressive Scan CMOS",

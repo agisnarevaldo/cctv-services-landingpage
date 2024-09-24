@@ -6,7 +6,7 @@ export default function Page() {
     const hikProducts = [
         {
             brand: "Hikvision",
-            model: "Full HD 2 Mp",
+            model: "Full HD 2 MP",
             price: "IDR. 4.499.000",
             features: [
                 "4 Kamera analog, in/out 2 MP",
@@ -23,7 +23,7 @@ export default function Page() {
         },
         {
             brand: "Hikvision",
-            model: "Full HD 2 Mp",
+            model: "Full HD 2 MP",
             price: "IDR. 8.499.000",
             features: [
                 "8 Kamera analog, in/out 2 MP",
@@ -40,7 +40,7 @@ export default function Page() {
         },
         {
             brand: "Hikvision",
-            model: "Full HD 2 Mp",
+            model: "Full HD 2 MP",
             price: "IDR. 17.599.000",
             features: [
                 "16 Kamera analog, in/out 2 MP",

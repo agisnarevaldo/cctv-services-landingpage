@@ -6,11 +6,11 @@ export default function Page() {
     const products = [
         {
             brand: "Dahua",
-            model: "Full HD 2 Mp",
+            model: "Full HD 2 MP",
             price: "Rp. 3.750.000,-",
             features: [
-                "4 Kamera in / out",
-                    "XVR 4 Channel",
+                "XVR 4 Channel",
+                "4 Kamera IN / OUT",
                 "Power Supply 10 A",
                 "Harddisk 500 GB",
                 "Kabel CCTV 100m",
@@ -23,7 +23,7 @@ export default function Page() {
         },
         {
             brand: "Dahua",
-            model: "Full HD 2 Mp",
+            model: "Full HD 2 MP",
             price: "Rp. 7.750.000,-",
             features: [
                 "XVR 8 Channel",
@@ -40,7 +40,7 @@ export default function Page() {
         },
         {
             brand: "Dahua",
-            model: "Full HD 2 Mp    ",
+            model: "Full HD 2 MP    ",
             price: "Rp. 13.850.000,-",
             features: [
                 "XVR 16 Channel ",
@@ -114,7 +114,7 @@ export default function Page() {
             features: [
                 "DVR 4 Channel",
                 "4 Camera IN / OUT",
-                "Harddisk 500GB",
+                "Hardisk 500GB",
                 "Power Supply 10 A",
                 "Kabel RG 59 100m",
                 "Jack BNC dan DC",
@@ -132,7 +132,7 @@ export default function Page() {
             features: [
                 "DVR 8 Channel",
                 "8 Camera IN / OUT",
-                "Harddisk 1TB",
+                "Hardisk 1TB",
                 "Power Supply 10 A",
                 "Kabel RG 59 200m",
                 "Jack BNC dan DC",
@@ -149,7 +149,7 @@ export default function Page() {
             features: [
                 "DVR 16 Channel",
                 "16 Camera IN / OUT",
-                "Harddisk 3TB",
+                "Hardisk 3TB",
                 "Power Supply 30 A",
                 "Kabel RG 59 300m",
                 "Jack BNC dan DC",

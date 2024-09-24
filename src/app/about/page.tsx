@@ -61,7 +61,7 @@ export default function Page() {
                         <div className="bg-primary text-bg p-4 rounded-lg">
                             <h3 className="font-bold text-xl mb-2">Misi</h3>
                             <p>
-                                Kami memiliki tim yang profesional, terampil dan terlatih dalam industri ini yang akan menghadirkan solusi sistem keamanan yang handal dan terpercaya. Tim instalasi kami dilengkapi dengan kemampuan desain struktur pemasangan kabel yang sangat aman dan rapi serta sudah menjalani k3 (keselamatan dan kesehatan kerja). Hal ini merupakan sebuah komitmen kami memberikan keamanan yang terbaik untuk mendukung bisnis anda. WANDI CCTV senantiasa menjadi mitra terbaik dan terdepan untuk kebutuhan solusi keamanan anda.
+                                Kami memiliki tim yang profesional, terampil dan terlatih dalam industri ini yang akan menghadirkan solusi sistem keamanan yang handal dan terpercaya. Tim instalasi kami dilengkapi dengan kemampuan desain struktur pemasangan kabel yang sangat aman dan rapi serta sudah menjalani k3 (keselamatan dan kesehatan kerja). Hal ini merupakan sebuah komitmen kami memberikan keamanan yang terbaik untuk mendukung bisnis anda. PRIANGAN CCTV senantiasa menjadi mitra terbaik dan terdepan untuk kebutuhan solusi keamanan anda.
                             </p>
                         </div>
                     </div>

@@ -1,0 +1,15 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Host
+Host: https://jasainstalcctv.com
+
+# Sitemaps
+Sitemap: https://jasainstalcctv.com/sitemap.xml

@@ -38,9 +38,12 @@ export default function Navbar() {
     }, [isMenuOpen, isDropdownOpen]);
 
     return (
-        <nav className="flex justify-between items-center py-1 px-4 md:px-12 backdrop-blur-lg w-full sticky top-0 z-40 bg-gray-100 bg-opacity-50">
-            <Link href="/" className="flex items-center pb-1">
-                <Image src="/priangan-logo.svg" alt="Logo" width={150} height={150} />
+        <nav className="flex justify-between items-center py-1 px-4 md:px-12 backdrop-blur-lg w-full sticky top-0 z-40 bg-gray-100 bg-opacity-0">
+            <Link href="/" className="flex items-center py-1 hover:scale-95 transition-transform">
+                <div>
+                    {/* <Image src="/mitrasia.png" alt="Logo" width={150} height={150} /> */}
+                    <Image src="/mitraasiacctv.svg" alt="mitraasia" width={276} height={83} />
+                </div>
             </Link>
             <div className="md:hidden">
                 <button onClick={toggleMenu} className="text-black">

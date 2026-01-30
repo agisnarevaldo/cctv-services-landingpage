@@ -71,13 +71,26 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // TODO: Add verification codes
-    // google: "google-site-verification-code",
-    // yandex: "yandex-verification-code",
+    google: "RlVbsYV8o0cKYNw-_sWmCmcxiMNAe763GFZTWbSfPaY",
   },
   alternates: {
     canonical: siteUrl,
   },
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/android-chrome-192x192.png',
+    other: [
+      {
+        rel: 'apple-touch-icon',
+        url: '/android-chrome-192x192.png',
+      },
+    ],
+  },
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({

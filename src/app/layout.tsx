@@ -13,21 +13,23 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jasainstalcctv.com'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Jasa Instalasi CCTV Profesional Jawa Barat | Mitra Asia CCTV",
+    default: "Jual & Jasa Pasang CCTV Profesional Jawa Barat | Mitra Asia CCTV",
     template: "%s | Mitra Asia CCTV",
   },
-  description: "Jasa instalasi, service, dan maintenance CCTV profesional untuk rumah, kantor, dan industri. Melayani Tasikmalaya, Bandung, Garut, Ciamis & seluruh Jawa Barat dengan garansi resmi.",
+  description: "Jual kamera CCTV dan jasa instalasi, service, maintenance CCTV profesional untuk rumah, kantor, dan industri. Melayani Tasikmalaya, Bandung, Garut, Ciamis & seluruh Jawa Barat dengan garansi resmi.",
   keywords: [
+    "jual cctv tasikmalaya",
+    "jual kamera cctv jawa barat",
+    "toko cctv bandung",
     "jasa pasang cctv tasikmalaya",
     "instalasi cctv jawa barat",
     "jasa cctv bandung",
     "pasang cctv garut",
     "service cctv ciamis",
-    "maintenance cctv",
-    "pasang cctv rumah",
-    "cctv kantor",
-    "hikvision tasikmalaya",
-    "dahua jawa barat",
+    "harga cctv murah",
+    "cctv hikvision tasikmalaya",
+    "cctv dahua jawa barat",
+    "paket cctv rumah",
   ],
   authors: [{ name: "Mitra Asia CCTV" }],
   creator: "Mitra Asia CCTV",
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: siteUrl,
     siteName: "Mitra Asia CCTV",
-    title: "Jasa Instalasi CCTV Profesional | Mitra Asia CCTV",
-    description: "Jasa instalasi, service, dan maintenance CCTV profesional untuk rumah, kantor, dan industri dengan garansi resmi.",
+    title: "Jual & Jasa Pasang CCTV Profesional | Mitra Asia CCTV",
+    description: "Jual kamera CCTV dan jasa instalasi, service, maintenance CCTV profesional untuk rumah, kantor, dan industri dengan garansi resmi.",
     images: [
       {
         url: `${siteUrl}/images/og-image.jpg`,
@@ -55,8 +57,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jasa Instalasi CCTV Profesional | Mitra Asia CCTV",
-    description: "Jasa instalasi, service, dan maintenance CCTV profesional untuk rumah, kantor, dan industri dengan garansi resmi.",
+    title: "Jual & Jasa Pasang CCTV Profesional | Mitra Asia CCTV",
+    description: "Jual kamera CCTV dan jasa instalasi, service, maintenance CCTV profesional untuk rumah, kantor, dan industri dengan garansi resmi.",
     images: [`${siteUrl}/images/og-image.jpg`],
   },
   robots: {

@@ -24,19 +24,20 @@ export async function generateMetadata({
         };
     }
 
-    const title = `Jasa Pasang CCTV ${city.name} - Instalasi Profesional & Bergaransi`;
-    const description = `Layanan instalasi CCTV profesional di ${city.name}, Jawa Barat. Melayani pemasangan CCTV rumah, kantor, toko & pabrik dengan teknisi berpengalaman dan garansi resmi. Hubungi ${BUSINESS_INFO.telephone}`;
+    const title = `Jual & Jasa Pasang CCTV ${city.name} - Toko CCTV Terdekat & Bergaransi`;
+    const description = `Jual kamera CCTV dan jasa instalasi profesional di ${city.name}, Jawa Barat. Tersedia CCTV Hikvision, Dahua, Ezviz dengan harga murah dan garansi resmi. Hubungi ${BUSINESS_INFO.telephone}`;
 
     return {
         title,
         description,
         keywords: [
+            `jual cctv ${city.name.toLowerCase()}`,
+            `toko cctv ${city.name.toLowerCase()}`,
+            `harga cctv ${city.name.toLowerCase()}`,
             `jasa pasang cctv ${city.name.toLowerCase()}`,
             `instalasi cctv ${city.name.toLowerCase()}`,
-            `service cctv ${city.name.toLowerCase()}`,
-            `pasang cctv rumah ${city.name.toLowerCase()}`,
-            `cctv ${city.name.toLowerCase()} murah`,
-            `teknisi cctv ${city.name.toLowerCase()}`,
+            `cctv murah ${city.name.toLowerCase()}`,
+            `kamera cctv ${city.name.toLowerCase()}`,
         ],
         openGraph: {
             title,
@@ -124,6 +125,15 @@ const CITY_DATA: Record<string, { tagline: string; highlights: string[] }> = {
             'Support 24/7',
         ],
     },
+    pangandaran: {
+        tagline: 'Partner CCTV Terpercaya di Pangandaran dan Sekitarnya',
+        highlights: [
+            'Jangkauan hingga pelosok Pangandaran',
+            'Harga kompetitif',
+            'Support after-sales',
+            'Produk bergaransi resmi',
+        ],
+    },
 };
 
 export default function WilayahPage({
@@ -145,14 +155,18 @@ export default function WilayahPage({
     // FAQ khusus untuk kota ini
     const cityFAQs = [
         {
+            question: `Berapa harga kamera CCTV di ${city.name}?`,
+            answer: `Harga kamera CCTV di toko kami ${city.name} mulai dari Rp350.000 untuk indoor hingga Rp2.500.000+ untuk outdoor premium. Tersedia CCTV Hikvision, Dahua, dan Ezviz dengan garansi resmi.`,
+        },
+        {
             question: `Berapa biaya pasang CCTV di ${city.name}?`,
             answer: `Biaya instalasi CCTV di ${city.name} mulai dari Rp300.000 per titik, tergantung jenis kamera dan tingkat kesulitan instalasi. Hubungi kami di ${BUSINESS_INFO.telephone} untuk penawaran harga terbaik.`,
         },
         {
-            question: `Apakah melayani instalasi CCTV di seluruh ${city.name}?`,
-            answer: `Ya, kami melayani instalasi CCTV di seluruh wilayah ${city.name} dan sekitarnya. Tim teknisi kami siap datang ke lokasi Anda untuk survei dan pemasangan.`,
+            question: `Apakah melayani penjualan dan instalasi CCTV di seluruh ${city.name}?`,
+            answer: `Ya, kami melayani penjualan kamera CCTV dan instalasi di seluruh wilayah ${city.name} dan sekitarnya. Tim teknisi kami siap datang ke lokasi Anda untuk survei dan pemasangan.`,
         },
-        ...FAQ_DATA.slice(0, 3),
+        ...FAQ_DATA.slice(0, 2),
     ];
 
     return (
@@ -177,7 +191,7 @@ export default function WilayahPage({
                         Layanan Area {city.name}
                     </span>
                     <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                        Jasa Pasang CCTV {city.name}
+                        Jual & Jasa Pasang CCTV {city.name}
                     </h1>
                     <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
                         {cityData.tagline}
@@ -232,8 +246,13 @@ export default function WilayahPage({
                     <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
                         Layanan CCTV di {city.name}
                     </h2>
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
+                            {
+                                title: 'Jual Kamera CCTV',
+                                desc: `Jual berbagai merk CCTV berkualitas di ${city.name}: Hikvision, Dahua, Ezviz dengan harga terbaik.`,
+                                icon: '📹',
+                            },
                             {
                                 title: 'Instalasi CCTV Rumah',
                                 desc: `Pemasangan sistem CCTV untuk rumah tinggal di ${city.name} dengan teknologi terkini.`,

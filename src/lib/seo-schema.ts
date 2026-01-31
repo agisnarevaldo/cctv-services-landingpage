@@ -99,9 +99,9 @@ export interface BreadcrumbSchema {
 
 // Business Information Constants
 export const BUSINESS_INFO = {
-    name: 'Jasa Instal CCTV',
-    alternateName: 'Jasa Instalasi CCTV Professional Jawa Barat',
-    description: 'Penyedia jasa instalasi, service, dan maintenance CCTV profesional untuk rumah, kantor, dan industri di Jawa Barat. Melayani pemasangan CCTV Hikvision, Dahua, dan berbagai brand terpercaya.',
+    name: 'Mitra Asia CCTV',
+    alternateName: 'Toko & Jasa Instalasi CCTV Profesional Jawa Barat',
+    description: 'Penjual kamera CCTV dan penyedia jasa instalasi, service, dan maintenance CCTV profesional untuk rumah, kantor, dan industri di Jawa Barat. Menjual dan memasang CCTV Hikvision, Dahua, Ezviz, dan berbagai brand terpercaya.',
     url: 'https://jasainstalcctv.com',
     telephone: '+62-851-5822-8528',
     email: 'jasainstalcctv@gmail.com',
@@ -140,12 +140,16 @@ export const SERVICE_AREAS = [
 // FAQ Data
 export const FAQ_DATA: FAQItem[] = [
     {
+        question: 'Berapa harga kamera CCTV?',
+        answer: 'Harga kamera CCTV di toko kami mulai dari Rp350.000 untuk kamera indoor hingga Rp2.500.000+ untuk kamera outdoor dengan fitur premium. Kami menjual CCTV Hikvision, Dahua, dan Ezviz dengan garansi resmi.',
+    },
+    {
         question: 'Berapa biaya instalasi CCTV per titik?',
         answer: 'Biaya instalasi CCTV per titik bervariasi mulai dari Rp300.000 hingga Rp800.000 tergantung jenis kamera, panjang kabel, dan tingkat kesulitan instalasi. Hubungi kami untuk mendapatkan penawaran harga yang sesuai dengan kebutuhan Anda.',
     },
     {
-        question: 'Apakah ada garansi untuk pemasangan CCTV?',
-        answer: 'Ya, kami memberikan garansi pemasangan selama 1 tahun dan garansi produk sesuai ketentuan pabrik. Garansi meliputi penggantian komponen yang rusak akibat cacat produksi dan perbaikan instalasi gratis.',
+        question: 'Apakah ada garansi untuk pembelian dan pemasangan CCTV?',
+        answer: 'Ya, kami memberikan garansi produk 1-2 tahun sesuai ketentuan pabrik dan garansi pemasangan selama 1 tahun. Garansi meliputi penggantian komponen yang rusak akibat cacat produksi dan perbaikan instalasi gratis.',
     },
     {
         question: 'Berapa lama proses instalasi CCTV biasanya?',
@@ -157,7 +161,7 @@ export const FAQ_DATA: FAQItem[] = [
     },
     {
         question: 'Apakah bisa melihat CCTV dari HP?',
-        answer: 'Ya, semua sistem CCTV yang kami pasang sudah dilengkapi dengan fitur remote viewing melalui smartphone. Anda bisa memantau rekaman secara real-time dari mana saja menggunakan aplikasi seperti Hik-Connect atau DMSS.',
+        answer: 'Ya, semua sistem CCTV yang kami jual sudah dilengkapi dengan fitur remote viewing melalui smartphone. Anda bisa memantau rekaman secara real-time dari mana saja menggunakan aplikasi seperti Hik-Connect atau DMSS.',
     },
 ];
 

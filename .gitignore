@@ -37,3 +37,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+searched_with_rising-queries_ID_20260129-0114_20260130-0114.csv
+searched_with_top-queries_ID_20260129-0113_20260130-0113.csv

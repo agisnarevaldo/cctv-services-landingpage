@@ -55,13 +55,13 @@ export default function Page() {
                         <div className="bg-primary text-bg p-4 rounded-lg">
                             <h3 className="font-bold text-xl mb-2">Visi</h3>
                             <p>
-                                Priangan CCTV merupakan dealer resmi dari Hikvision, Dahua, Ezviz, Hilook dan Imou yang mana merupakan market leader di dalam industri keamanan di dunia yang hanya menyediakan produk-produk paling terpercaya dan berkualitas tinggi. Jaringan distribusi Priangan CCTV memiliki jangkauan diseluruh indonesia. Selain kegiatan distribusi, kami juga melayani konsultasi dan instalasi dengan integrasi sistem keamanan. Kami memiliki visi untuk menjadi perusahaan yang terdepan dalam memberikan solusi keamanan yang terbaik dan terpercaya untuk mendukung bisnis anda.
+                                Mitra Asia CCTV merupakan dealer resmi dari Hikvision, Dahua, Ezviz, Hilook dan Imou yang mana merupakan market leader di dalam industri keamanan di dunia yang hanya menyediakan produk-produk paling terpercaya dan berkualitas tinggi. Jaringan distribusi Mitra Asia CCTV memiliki jangkauan diseluruh indonesia. Selain kegiatan distribusi, kami juga melayani konsultasi dan instalasi dengan integrasi sistem keamanan. Kami memiliki visi untuk menjadi perusahaan yang terdepan dalam memberikan solusi keamanan yang terbaik dan terpercaya untuk mendukung bisnis anda.
                             </p>
                         </div>
                         <div className="bg-primary text-bg p-4 rounded-lg">
                             <h3 className="font-bold text-xl mb-2">Misi</h3>
                             <p>
-                                Kami memiliki tim yang profesional, terampil dan terlatih dalam industri ini yang akan menghadirkan solusi sistem keamanan yang handal dan terpercaya. Tim instalasi kami dilengkapi dengan kemampuan desain struktur pemasangan kabel yang sangat aman dan rapi serta sudah menjalani k3 (keselamatan dan kesehatan kerja). Hal ini merupakan sebuah komitmen kami memberikan keamanan yang terbaik untuk mendukung bisnis anda. PRIANGAN CCTV senantiasa menjadi mitra terbaik dan terdepan untuk kebutuhan solusi keamanan anda.
+                                Kami memiliki tim yang profesional, terampil dan terlatih dalam industri ini yang akan menghadirkan solusi sistem keamanan yang handal dan terpercaya. Tim instalasi kami dilengkapi dengan kemampuan desain struktur pemasangan kabel yang sangat aman dan rapi serta sudah menjalani k3 (keselamatan dan kesehatan kerja). Hal ini merupakan sebuah komitmen kami memberikan keamanan yang terbaik untuk mendukung bisnis anda. Mitra Asia CCTV senantiasa menjadi mitra terbaik dan terdepan untuk kebutuhan solusi keamanan anda.
                             </p>
                         </div>
                     </div>

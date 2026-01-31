@@ -104,6 +104,21 @@ export default function Navbar() {
                 </li>
                 <li className="py-4">
                     <Link
+                        href="/blog"
+                        className={
+                            clsx(
+                                "hover:text-secondary font-medium text-black",
+                                {
+                                    "text-secondary": pathname.startsWith("/blog"),
+                                }
+                            )
+                        }
+                    >
+                        Blog
+                    </Link>
+                </li>
+                <li className="py-4">
+                    <Link
                         href="/kontak"
                         className={
                             clsx(

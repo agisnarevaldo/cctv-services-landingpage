@@ -103,7 +103,7 @@ export const BUSINESS_INFO = {
     alternateName: 'Toko & Jasa Instalasi CCTV Profesional Jawa Barat',
     description: 'Penjual kamera CCTV dan penyedia jasa instalasi, service, dan maintenance CCTV profesional untuk rumah, kantor, dan industri di Jawa Barat. Menjual dan memasang CCTV Hikvision, Dahua, Ezviz, dan berbagai brand terpercaya.',
     url: 'https://jasainstalcctv.com',
-    telephone: '+62-851-5822-8528',
+    telephone: '+62-822-2865-4835',
     email: 'jasainstalcctv@gmail.com',
     address: {
         streetAddress: 'Mall Plaza Asia, Lantai GF, Tugujaya, Kec. Cihideung, Kab. Tasikmalaya',

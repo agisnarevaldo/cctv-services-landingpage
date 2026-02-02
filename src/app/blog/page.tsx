@@ -132,7 +132,7 @@ export default function BlogPage() {
                         Hubungi kami untuk konsultasi gratis seputar kebutuhan CCTV Anda.
                     </p>
                     <a
-                        href={`https://wa.me/6285158228528?text=Halo, saya ingin konsultasi tentang CCTV`}
+                        href={`https://wa.me/6282228654835?text=Halo, saya ingin konsultasi tentang CCTV`}
                         className="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-lg inline-flex items-center gap-2 transition-colors"
                     >
                         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

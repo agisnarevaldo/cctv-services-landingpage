@@ -198,7 +198,7 @@ export default function WilayahPage({
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href={`https://wa.me/6285158228528?text=Halo, saya tertarik dengan jasa instalasi CCTV di ${city.name}`}
+                            href={`https://wa.me/6282228654835?text=Halo, saya tertarik dengan jasa instalasi CCTV di ${city.name}`}
                             className="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-lg flex items-center justify-center gap-2 transition-colors"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -320,7 +320,7 @@ export default function WilayahPage({
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href={`https://wa.me/6285158228528?text=Halo, saya ingin konsultasi pemasangan CCTV di ${city.name}`}
+                            href={`https://wa.me/6282228654835?text=Halo, saya ingin konsultasi pemasangan CCTV di ${city.name}`}
                             className="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-lg transition-colors"
                         >
                             Chat WhatsApp Sekarang

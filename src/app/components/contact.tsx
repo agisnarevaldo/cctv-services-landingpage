@@ -6,7 +6,7 @@ const Contact = () => {
                 className="relative overflow-hidden py-10 lg:py-[60px]"
                 id="contact"
             >
-            <div className="container">
+                <div className="container">
                     <div className="-mx-4 flex flex-wrap lg:justify-center">
                         <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
                             <div className="mb-12 max-w-[570px] lg:mb-0">
@@ -66,7 +66,7 @@ const Contact = () => {
                                             </g>
                                             <defs>
                                                 <clipPath id="clip0_941_17577">
-                                                    <rect width="32" height="32" fill="white"/>
+                                                    <rect width="32" height="32" fill="white" />
                                                 </clipPath>
                                             </defs>
                                         </svg>
@@ -76,7 +76,7 @@ const Contact = () => {
                                             Telepon / WA
                                         </h4>
                                         <p className="text-base text-body-color">
-                                            (+62)851-5822-8521
+                                            (+62)822-2865-4835
                                         </p>
                                     </div>
                                 </div>
@@ -144,7 +144,7 @@ const Contact = () => {
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
             </section>
         </>
     );
@@ -153,32 +153,32 @@ const Contact = () => {
 export default Contact;
 
 const ContactTextArea = ({
-                             row,
-                             placeholder,
-                             name,
-                             defaultValue,
-                         }: {
+    row,
+    placeholder,
+    name,
+    defaultValue,
+}: {
     row: number;
     placeholder: string;
     name: string;
     defaultValue?: string;
 }) => (
     <div className="mb-6">
-    <textarea
-        rows={row}
-        placeholder={placeholder}
-        name={name}
-        className="w-full resize-none rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary"
-        defaultValue={defaultValue}
-    />
+        <textarea
+            rows={row}
+            placeholder={placeholder}
+            name={name}
+            className="w-full resize-none rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary"
+            defaultValue={defaultValue}
+        />
     </div>
 );
 
 const ContactInputBox = ({
-                             type,
-                             placeholder,
-                             name,
-                         }: {
+    type,
+    placeholder,
+    name,
+}: {
     type: string;
     placeholder: string;
     name: string;

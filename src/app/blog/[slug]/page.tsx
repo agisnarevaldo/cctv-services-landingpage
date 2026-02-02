@@ -243,7 +243,7 @@ export default function ArticlePage({
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href={`https://wa.me/6285158228528?text=Halo, saya baru baca artikel "${article.title}" dan ingin konsultasi lebih lanjut`}
+                            href={`https://wa.me/6282228654835?text=Halo, saya baru baca artikel "${article.title}" dan ingin konsultasi lebih lanjut`}
                             className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg inline-flex items-center justify-center gap-2 transition-colors"
                         >
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

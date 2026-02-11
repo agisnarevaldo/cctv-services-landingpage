@@ -66,7 +66,7 @@ export default function Home() {
 
     return (
         <main className="flex flex-col gap-16">
-            <FloatingChatButton bottom="bottom-44 md:bottom-4" />
+            <FloatingChatButton bottom="bottom-4" />
 
             <HeroSection />
 

@@ -9,15 +9,15 @@ export default function HeroSection() {
     const [opacity, setOpacity] = useState(0);
     const [textOpacity, setTextOpacity] = useState(0);
     const images = [
-        "/hero.webp",
-        "/hero2.webp",
-        "/hero3.webp",
+        "/banner.png",
+        "/banner3.png",
+        "/bannerx.png",
     ];
 
     const texts = [
         "Ahli Pemasangan CCTV Profesional & Bergaransi Resmi",
         "Free Biaya Instalasi dan Konfigurasi",
-        "Garansi Resmi 1 Tahun"
+        "Hubungi Kami: (+62)822-2865-4835",
     ]
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export default function HeroSection() {
                 setCurrentImage((prev) => (prev + 1) % images.length);
                 setOpacity(1); // Start image fade-in
                 setTextOpacity(1); // Start text fade-in
-            }, 300); // Short delay before changing the image and text and starting fade-in
+            }, 2000); // Short delay before changing the image and text and starting fade-in
         }, 5000);
 
         return () => clearInterval(interval);
@@ -50,18 +50,17 @@ export default function HeroSection() {
                     // loading="lazy"
                 />
             ))}
-            <div className="absolute top-0 w-full h-full bg-black bg-opacity-40 rounded-t-2xl"></div>
+            <div className="absolute top-0 w-full h-full bg-black bg-opacity-50 rounded-t-2xl"></div>
             <div
                 className="absolute top-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent rounded-t-2xl"></div>
             <div className="absolute top-0 w-fit lg:w-screen lg:max-w-full sm:max-w-sm h-screen z-20">
-                <div className="flex flex-col items-center justify-around h-full gap-10">
-                    <span className=""></span>
+                <div className="flex flex-col items-center justify-center h-full gap-10">
                     <div className="flex flex-col items-center gap-5">
                         <h1 className={`text-4xl font-bold text-center text-white transition-opacity duration-1000 ${textOpacity ? 'opacity-100' : 'opacity-0'}`}>
                             {texts[currentImage]}
                         </h1>
                     </div>
-                    <div
+                    {/* <div
                         className="text-bg bg-gradient-to-b from-secondary to-primary bg-blend-darken bg-opacity-50 mb-10 flex lg:gap-8 py-5 lg:px-8 rounded-xl">
                         <div className="flex flex-col text-center lg:flex-row items-center justify-center gap-2">
                             <Icon className="text-4xl lg:text-[56px]" icon="streamline:fastforward-clock"/>
@@ -84,7 +83,7 @@ export default function HeroSection() {
                                 <p className="text-sm md:text-base">System terpasang</p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

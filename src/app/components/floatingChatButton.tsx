@@ -20,10 +20,11 @@ export default function FloatingChatButton({ bottom }: FloatingChatButtonProps) 
                     `bg-primary text-white rounded-full p-4 shadow-xl
                 flex items-center justify-center
                 hover:bg-secondary transition duration-300 
-                transform ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+                transform ${isOpen ? '' : ''}`}
                 onClick={togglePopup}
             >
                 <Icon icon={isOpen ? "ic:round-close" : "bi:chat-right-text"} />
+                Jadwalkan survey
             </button>
 
             {isOpen && (

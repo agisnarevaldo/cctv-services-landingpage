@@ -9,13 +9,13 @@ export default function HeroSection() {
     const [opacity, setOpacity] = useState(0);
     const [textOpacity, setTextOpacity] = useState(0);
     const images = [
-        "/hero.png",
-        "/hero-cctv.jpg",
-        "/hero-2.svg",
+        "/hero.webp",
+        "/hero2.webp",
+        "/hero3.webp",
     ];
 
     const texts = [
-        "Selamat Datang di Website Kami",
+        "Ahli Pemasangan CCTV Profesional & Bergaransi Resmi",
         "Free Biaya Instalasi dan Konfigurasi",
         "Garansi Resmi 1 Tahun"
     ]
@@ -84,7 +84,6 @@ export default function HeroSection() {
                                 <p className="text-sm md:text-base">System terpasang</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

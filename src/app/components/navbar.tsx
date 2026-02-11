@@ -59,11 +59,11 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="flex justify-between items-center py-1 px-4 md:px-12 backdrop-blur-lg w-full sticky top-0 z-40 bg-gray-100 bg-opacity-0">
+        <nav className="flex justify-between items-center py-1 px-4 md:px-12 shadow-md backdrop-blur-lg w-full sticky top-0 z-40 bg-gray-100 bg-opacity-100">
             <Link href="/" className="flex items-center py-1 hover:scale-95 transition-transform">
                 <div>
                     {/* <Image src="/mitrasia.png" alt="Logo" width={150} height={150} /> */}
-                    <Image src="/mitraasiacctv.svg" alt="mitraasia" width={276} height={83} />
+                    <Image src="/Mac.png" alt="mitraasia" width={226} height={83} />
                 </div>
             </Link>
             <div className="md:hidden">

@@ -12,10 +12,10 @@
   "dependencies": {
     "@portabletext/block-tools": "5.0.1",
     "@portabletext/react": "6.0.2",
-    "@sanity/image-url": "1.0.2",
-    "@sanity/schema": "3.99.0",
-    "@sanity/table": "2.0.1",
-    "@sanity/vision": "3.50.0",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/schema": "^3.99.0",
+    "@sanity/table": "^2.0.1",
+    "@sanity/vision": "^3.99.0",
     "@types/jsdom": "27.0.0",
     "@types/marked": "5.0.2",
     "@types/uuid": "9.0.7",
@@ -24,7 +24,7 @@
     "lucide-react": "^0.564.0",
     "marked": "17.0.2",
     "next": "14.2.4",
-    "next-sanity": "9.0.0",
+    "next-sanity": "^9.0.0",
     "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-dom": "^18",
@@ -33,8 +33,8 @@
     "remark": "15.0.1",
     "remark-gfm": "4.0.1",
     "remark-parse": "11.0.0",
-    "sanity": "3.50.0",
-    "styled-components": "6.1.13",
+    "sanity": "^3.99.0",
+    "styled-components": "^6.1.13",
     "tsx": "^4.21.0",
     "unist-util-visit": "5.1.0",
     "uuid": "9.0.1"
@@ -49,5 +49,8 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@sanity/icons": "^3.0.0"
   }
 }

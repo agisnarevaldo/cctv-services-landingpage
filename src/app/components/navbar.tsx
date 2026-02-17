@@ -10,6 +10,9 @@ import clsx from "clsx";
 
 export default function Navbar() {
     const pathname = usePathname();
+
+
+
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isWilayahDropdownOpen, setIsWilayahDropdownOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,6 +48,7 @@ export default function Navbar() {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isMenuOpen, isDropdownOpen, isWilayahDropdownOpen]);
 
     const wilayahList = [
@@ -57,6 +61,11 @@ export default function Navbar() {
         { name: 'Sukabumi', slug: 'sukabumi' },
         { name: 'Bogor', slug: 'bogor' },
     ];
+
+    // Hide navbar on admin pages
+    if (pathname.startsWith('/admin')) {
+        return null;
+    }
 
     return (
         <nav className="flex justify-between items-center py-1 px-4 md:px-12 shadow-md backdrop-blur-lg w-full sticky top-0 z-40 bg-gray-100 bg-opacity-100">

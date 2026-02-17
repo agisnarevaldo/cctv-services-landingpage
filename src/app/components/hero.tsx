@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import {Icon} from "@iconify-icon/react";
-import {useEffect, useState} from "react";
+import { Icon } from "@iconify-icon/react";
+import { useEffect, useState } from "react";
 
 export default function HeroSection() {
     const [currentImage, setCurrentImage] = useState(0);
@@ -33,7 +33,7 @@ export default function HeroSection() {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [images.length]);
 
     return (
         <div className="relative -z-20 w-full min-h-screen ">
@@ -45,9 +45,9 @@ export default function HeroSection() {
                     alt="Hero"
                     sizes="100vw"
                     fill
-                    style={{objectFit: "cover", objectPosition: "center"}}
+                    style={{ objectFit: "cover", objectPosition: "center" }}
                     priority={index === 0} // Preload the first image
-                    // loading="lazy"
+                // loading="lazy"
                 />
             ))}
             <div className="absolute top-0 w-full h-full bg-black bg-opacity-50 rounded-t-2xl"></div>

@@ -1,7 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
-import { ARTICLES, getRecentArticles } from '@/lib/blog-data';
+import { client } from '@/lib/sanity.client';
+import { postsQuery } from '@/lib/sanity.queries';
+import { urlFor } from '@/lib/sanity.image';
 import { BUSINESS_INFO } from '@/lib/seo-schema';
+
+export const revalidate = 60; // Revalidate every 60 seconds
 
 export const metadata: Metadata = {
     title: 'Blog & Panduan CCTV - Tips, Tutorial, dan Informasi Terbaru',
@@ -38,8 +43,11 @@ const categoryColors: Record<string, string> = {
     komersial: 'bg-orange-100 text-orange-700',
 };
 
-export default function BlogPage() {
-    const articles = getRecentArticles(10);
+// Fallback color if category not found
+const defaultCategoryColor = 'bg-gray-100 text-gray-700';
+
+export default async function BlogPage() {
+    const articles = await client.fetch(postsQuery);
 
     return (
         <>
@@ -59,52 +67,75 @@ export default function BlogPage() {
             <section className="py-16 px-4 bg-gray-50">
                 <div className="max-w-6xl mx-auto">
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {articles.map((article) => (
-                            <article
-                                key={article.slug}
-                                className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow group"
-                            >
-                                {/* Thumbnail placeholder */}
-                                <div className="h-48 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                                    <span className="text-6xl">📹</span>
-                                </div>
+                        {articles.map((article: any) => {
+                            // Handle category (array or string depending on schema, migration mapped as array)
+                            const category = article.categories && article.categories.length > 0 ? article.categories[0].toLowerCase() : 'tips';
+                            const catLabel = categoryLabels[category] || article.categories?.[0] || 'Tips';
+                            const catColor = categoryColors[category] || defaultCategoryColor;
 
-                                <div className="p-6">
-                                    {/* Category & Read Time */}
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${categoryColors[article.category]}`}>
-                                            {categoryLabels[article.category]}
-                                        </span>
-                                        <span className="text-gray-400 text-sm">
-                                            {article.readTime} menit baca
-                                        </span>
+                            return (
+                                <article
+                                    key={article._id}
+                                    className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow group flex flex-col"
+                                >
+                                    {/* Thumbnail */}
+                                    <div className="h-48 bg-gray-200 relative overflow-hidden">
+                                        {article.mainImage ? (
+                                            <Image
+                                                src={urlFor(article.mainImage).width(600).height(400).url()}
+                                                alt={article.title}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                                width={600}
+                                                height={400}
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                                                <span className="text-6xl">📹</span>
+                                            </div>
+                                        )}
                                     </div>
 
-                                    {/* Title */}
-                                    <h2 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
-                                        <Link href={`/blog/${article.slug}`}>
-                                            {article.title}
+                                    <div className="p-6 flex-1 flex flex-col">
+                                        {/* Category & Date */}
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${catColor}`}>
+                                                {catLabel}
+                                            </span>
+                                            <span className="text-gray-400 text-sm">
+                                                {new Date(article.publishedAt).toLocaleDateString('id-ID', {
+                                                    day: 'numeric',
+                                                    month: 'long',
+                                                    year: 'numeric'
+                                                })}
+                                            </span>
+                                        </div>
+
+                                        {/* Title */}
+                                        <h2 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                            <Link href={`/blog/${article.slug.current}`}>
+                                                {article.title}
+                                            </Link>
+                                        </h2>
+
+                                        {/* Excerpt */}
+                                        <p className="text-gray-600 text-sm line-clamp-3 mb-4 flex-1">
+                                            {article.excerpt}
+                                        </p>
+
+                                        {/* Read More Link */}
+                                        <Link
+                                            href={`/blog/${article.slug.current}`}
+                                            className="text-blue-600 font-medium text-sm hover:text-blue-700 inline-flex items-center gap-1 mt-auto"
+                                        >
+                                            Baca Selengkapnya
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
                                         </Link>
-                                    </h2>
-
-                                    {/* Excerpt */}
-                                    <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-                                        {article.excerpt}
-                                    </p>
-
-                                    {/* Read More Link */}
-                                    <Link
-                                        href={`/blog/${article.slug}`}
-                                        className="text-blue-600 font-medium text-sm hover:text-blue-700 inline-flex items-center gap-1"
-                                    >
-                                        Baca Selengkapnya
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </Link>
-                                </div>
-                            </article>
-                        ))}
+                                    </div>
+                                </article>
+                            )
+                        })}
                     </div>
 
                     {/* Empty State */}

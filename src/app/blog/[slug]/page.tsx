@@ -1,15 +1,20 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { getArticleBySlug, getAllArticleSlugs, getRecentArticles } from '@/lib/blog-data';
+import Image from 'next/image';
+import { PortableText } from '@portabletext/react';
+import { client } from '@/lib/sanity.client';
+import { postBySlugQuery, postSlugsQuery, postsQuery } from '@/lib/sanity.queries';
+import { urlFor } from '@/lib/sanity.image';
 import { BUSINESS_INFO } from '@/lib/seo-schema';
 import { SchemaMarkup } from '@/app/components/SchemaMarkup';
 
+export const revalidate = 60;
+
 // Generate static params for all articles
 export async function generateStaticParams() {
-    return getAllArticleSlugs().map((slug) => ({
+    const slugs = await client.fetch(postSlugsQuery);
+    return slugs.map((slug: string) => ({
         slug,
     }));
 }
@@ -20,7 +25,7 @@ export async function generateMetadata({
 }: {
     params: { slug: string };
 }): Promise<Metadata> {
-    const article = getArticleBySlug(params.slug);
+    const article = await client.fetch(postBySlugQuery, { slug: params.slug });
 
     if (!article) {
         return {
@@ -28,36 +33,42 @@ export async function generateMetadata({
         };
     }
 
+    const imageUrl = article.mainImage ? urlFor(article.mainImage).width(1200).height(630).url() : undefined;
+
     return {
-        title: article.metaTitle,
-        description: article.metaDescription,
-        keywords: article.keywords,
+        title: article.title,
+        description: article.excerpt,
         openGraph: {
-            title: article.metaTitle,
-            description: article.metaDescription,
+            title: article.title,
+            description: article.excerpt,
             type: 'article',
             locale: 'id_ID',
-            publishedTime: article.publishDate,
+            publishedTime: article.publishedAt,
             authors: ['Mitra Asia CCTV'],
+            images: imageUrl ? [imageUrl] : undefined,
         },
         twitter: {
             card: 'summary_large_image',
-            title: article.metaTitle,
-            description: article.metaDescription,
+            title: article.title,
+            description: article.excerpt,
+            images: imageUrl ? [imageUrl] : undefined,
         },
         alternates: {
-            canonical: `${BUSINESS_INFO.url}/blog/${article.slug}`,
+            canonical: `${BUSINESS_INFO.url}/blog/${article.slug.current}`,
         },
     };
 }
 
 // Generate article schema
-function generateArticleSchema(article: { title: string; metaDescription: string; publishDate: string; slug: string }) {
+function generateArticleSchema(article: any) {
+    const imageUrl = article.mainImage ? urlFor(article.mainImage).url() : `${BUSINESS_INFO.url}/images/logo.png`;
+
     return {
         '@context': 'https://schema.org',
         '@type': 'Article',
         headline: article.title,
-        description: article.metaDescription,
+        description: article.excerpt,
+        image: imageUrl,
         author: {
             '@type': 'Organization',
             name: 'Mitra Asia CCTV',
@@ -71,11 +82,11 @@ function generateArticleSchema(article: { title: string; metaDescription: string
                 url: `${BUSINESS_INFO.url}/images/logo.png`,
             },
         },
-        datePublished: article.publishDate,
-        dateModified: article.publishDate,
+        datePublished: article.publishedAt,
+        dateModified: article.publishedAt,
         mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': `${BUSINESS_INFO.url}/blog/${article.slug}`,
+            '@id': `${BUSINESS_INFO.url}/blog/${article.slug.current}`,
         },
     };
 }
@@ -87,22 +98,121 @@ const categoryLabels: Record<string, string> = {
     komersial: 'Komersial',
 };
 
-export default function ArticlePage({
+const components = {
+    types: {
+        image: ({ value }: any) => {
+            if (!value?.asset?._ref) {
+                return null;
+            }
+            return (
+                <div className="my-8 relative w-full h-auto">
+                    <Image
+                        src={urlFor(value).width(800).fit('max').auto('format').url()}
+                        alt={value.alt || ' '}
+                        width={800}
+                        height={500}
+                        className="rounded-lg shadow-md mx-auto h-auto w-auto"
+                        style={{ maxWidth: '100%', height: 'auto' }}
+                    />
+                </div>
+            );
+        },
+        table: ({ value }: any) => {
+            if (!value?.rows?.length) return null;
+
+            const [head, ...rows] = value.rows;
+
+            return (
+                <div className="overflow-x-auto my-8 border border-gray-200 rounded-lg shadow-sm">
+                    <table className="min-w-full divide-y divide-gray-200">
+                        {head && (
+                            <thead className="bg-gray-50">
+                                <tr>
+                                    {head.cells.map((cell: string, index: number) => (
+                                        <th
+                                            key={index}
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                        >
+                                            {cell}
+                                        </th>
+                                    ))}
+                                </tr>
+                            </thead>
+                        )}
+                        <tbody className="bg-white divide-y divide-gray-200">
+                            {rows.map((row: any, rowIndex: number) => (
+                                <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                                    {row.cells.map((cell: string, cellIndex: number) => (
+                                        <td
+                                            key={cellIndex}
+                                            className="px-6 py-4 whitespace-normal text-sm text-gray-700 leading-relaxed"
+                                        >
+                                            {cell}
+                                        </td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        },
+    },
+    block: {
+        h1: ({ children }: any) => <h1 className="text-3xl font-bold text-gray-800 mt-8 mb-4">{children}</h1>,
+        h2: ({ children }: any) => <h2 className="text-2xl font-bold text-gray-800 mt-10 mb-4">{children}</h2>,
+        h3: ({ children }: any) => <h3 className="text-xl font-bold text-gray-800 mt-8 mb-3">{children}</h3>,
+        normal: ({ children }: any) => <p className="text-gray-700 leading-relaxed mb-4">{children}</p>,
+        blockquote: ({ children }: any) => (
+            <blockquote className="border-l-4 border-blue-500 bg-blue-50 py-2 px-4 my-4 italic text-gray-700">
+                {children}
+            </blockquote>
+        ),
+    },
+    list: {
+        bullet: ({ children }: any) => <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">{children}</ul>,
+        number: ({ children }: any) => <ol className="list-decimal list-inside text-gray-700 mb-4 space-y-2">{children}</ol>,
+    },
+    listItem: {
+        bullet: ({ children }: any) => <li className="text-gray-700">{children}</li>,
+        number: ({ children }: any) => <li className="text-gray-700">{children}</li>,
+    },
+    marks: {
+        link: ({ value, children }: any) => {
+            const target = (value?.href || '').startsWith('http') ? '_blank' : undefined;
+            return (
+                <a href={value?.href} target={target} rel={target === '_blank' ? 'noindex nofollow' : undefined} className="text-blue-600 hover:underline">
+                    {children}
+                </a>
+            );
+        },
+    },
+};
+
+export default async function ArticlePage({
     params,
 }: {
     params: { slug: string };
 }) {
-    const article = getArticleBySlug(params.slug);
+    const article = await client.fetch(postBySlugQuery, { slug: params.slug });
 
     if (!article) {
         notFound();
     }
 
-    const recentArticles = getRecentArticles(3).filter(
-        (a) => a.slug !== article.slug
-    );
+    // Fetch related articles (excluding current)
+    // Simplified: Just fetch any 3 latest posts
+    const allPosts = await client.fetch(postsQuery);
+    const recentArticles = allPosts
+        .filter((a: any) => a.slug.current !== article.slug.current)
+        .slice(0, 3);
 
     const articleSchema = generateArticleSchema(article);
+
+    // Handle category (simpler logic)
+    const category = article.categories && article.categories.length > 0 ? article.categories[0].toLowerCase() : 'tips';
+    const catLabel = categoryLabels[category] || article.categories?.[0] || 'Tips';
 
     return (
         <>
@@ -135,23 +245,23 @@ export default function ArticlePage({
                             Blog
                         </Link>
                         <span className="mx-2">/</span>
-                        <span className="text-gray-300">{categoryLabels[article.category]}</span>
+                        <span className="text-gray-300">{catLabel}</span>
                     </nav>
 
                     {/* Category & Meta */}
                     <div className="flex items-center gap-4 mb-4 flex-wrap">
                         <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                            {categoryLabels[article.category]}
+                            {catLabel}
                         </span>
                         <span className="text-gray-400">
-                            {new Date(article.publishDate).toLocaleDateString('id-ID', {
+                            {new Date(article.publishedAt).toLocaleDateString('id-ID', {
                                 day: 'numeric',
                                 month: 'long',
                                 year: 'numeric',
                             })}
                         </span>
                         <span className="text-gray-400">•</span>
-                        <span className="text-gray-400">{article.readTime} menit baca</span>
+                        <span className="text-gray-400">5 menit baca</span>
                     </div>
 
                     {/* Title */}
@@ -164,71 +274,10 @@ export default function ArticlePage({
             {/* Article Content */}
             <article className="py-12 px-4">
                 <div className="max-w-4xl mx-auto">
-                    <ReactMarkdown
-                        remarkPlugins={[remarkGfm]}
-                        components={{
-                            h1: ({ children }) => (
-                                <h1 className="text-3xl font-bold text-gray-800 mt-8 mb-4">{children}</h1>
-                            ),
-                            h2: ({ children }) => (
-                                <h2 className="text-2xl font-bold text-gray-800 mt-10 mb-4">{children}</h2>
-                            ),
-                            h3: ({ children }) => (
-                                <h3 className="text-xl font-bold text-gray-800 mt-8 mb-3">{children}</h3>
-                            ),
-                            p: ({ children }) => (
-                                <p className="text-gray-700 leading-relaxed mb-4">{children}</p>
-                            ),
-                            ul: ({ children }) => (
-                                <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">{children}</ul>
-                            ),
-                            ol: ({ children }) => (
-                                <ol className="list-decimal list-inside text-gray-700 mb-4 space-y-2">{children}</ol>
-                            ),
-                            li: ({ children }) => (
-                                <li className="text-gray-700">{children}</li>
-                            ),
-                            a: ({ href, children }) => (
-                                <a href={href} className="text-blue-600 hover:underline">{children}</a>
-                            ),
-                            strong: ({ children }) => (
-                                <strong className="font-bold text-gray-800">{children}</strong>
-                            ),
-                            blockquote: ({ children }) => (
-                                <blockquote className="border-l-4 border-blue-500 bg-blue-50 py-2 px-4 my-4 italic text-gray-700">
-                                    {children}
-                                </blockquote>
-                            ),
-                            code: ({ children }) => (
-                                <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">{children}</code>
-                            ),
-                            hr: () => <hr className="my-8 border-gray-200" />,
-                            table: ({ children }) => (
-                                <div className="overflow-x-auto my-6">
-                                    <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
-                                        {children}
-                                    </table>
-                                </div>
-                            ),
-                            thead: ({ children }) => (
-                                <thead className="bg-gray-100">{children}</thead>
-                            ),
-                            tbody: ({ children }) => (
-                                <tbody className="divide-y divide-gray-200">{children}</tbody>
-                            ),
-                            tr: ({ children }) => (
-                                <tr className="hover:bg-gray-50">{children}</tr>
-                            ),
-                            th: ({ children }) => (
-                                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-800">{children}</th>
-                            ),
-                            td: ({ children }) => (
-                                <td className="px-4 py-3 text-sm text-gray-700">{children}</td>
-                            ),
-                        }}
-                    >
-                        {article.content}
-                    </ReactMarkdown>
+                    <PortableText
+                        value={article.body}
+                        components={components}
+                    />
                 </div>
             </article>
 
@@ -269,26 +318,38 @@ export default function ArticlePage({
                             Artikel Terkait
                         </h2>
                         <div className="grid md:grid-cols-3 gap-6">
-                            {recentArticles.map((relatedArticle) => (
+                            {recentArticles.map((relatedArticle: any) => (
                                 <article
-                                    key={relatedArticle.slug}
+                                    key={relatedArticle._id}
                                     className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
                                 >
-                                    <div className="h-32 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                                        <span className="text-4xl">📹</span>
+                                    <div className="h-32 bg-gray-200 relative overflow-hidden">
+                                        {relatedArticle.mainImage ? (
+                                            <Image
+                                                src={urlFor(relatedArticle.mainImage).width(400).height(300).url()}
+                                                alt={relatedArticle.title}
+                                                className="w-full h-full object-cover"
+                                                width={400}
+                                                height={300}
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                                                <span className="text-4xl">📹</span>
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="p-4">
                                         <h3 className="font-bold text-gray-800 mb-2 line-clamp-2">
                                             <Link
-                                                href={`/blog/${relatedArticle.slug}`}
+                                                href={`/blog/${relatedArticle.slug.current}`}
                                                 className="hover:text-blue-600"
                                             >
                                                 {relatedArticle.title}
                                             </Link>
                                         </h3>
-                                        <p className="text-gray-500 text-sm">
-                                            {relatedArticle.readTime} menit baca
-                                        </p>
+                                        {/* <p className="text-gray-500 text-sm">
+                                            {relatedArticle.readTime || 5} menit baca
+                                        </p> */}
                                     </div>
                                 </article>
                             ))}
